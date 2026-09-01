@@ -49,6 +49,9 @@ cd ~/.dsh/profiles/web && pnpm install
 
 ## 3. 隔离测试副本（推荐：不改动生产实例）
 
+> **标准测试实例：端口 3090**。开发/测试任何插件都在此副本先行验证（插件可用性 + 与生产
+> 其他插件是否冲突），确认无误再导入生产 3080，避免插件冲突把正式 Harness 搞崩。
+
 想安全测试插件稳定性而不影响正在运行的 DeepSeekHarness（`~/.dsh` + 端口 3080）？
 DSH 支持用 **`DSH_HOME` 环境变量**指向一个完全独立的数据根目录（设置/存储/会话/进程全隔离）。
 
@@ -57,7 +60,7 @@ settings.yaml、.credentials.yaml 一并复制，再叠加被测插件——既�
 也能测**与生产其他插件是否互相冲突**。
 
 ```bash
-# 克隆生产环境 + 被测插件，端口 3090（默认；DSH_TEST_HOME 可覆盖测试 home 位置）
+# 克隆生产环境 + 被测插件，端口 3090（默认标准；DSH_TEST_HOME 可覆盖测试 home 位置）
 DSH_TEST_HOME=/path/to/test-home bash scripts/test-copy.sh
 
 bash scripts/test-copy.sh --reset            # 删除并重建（重新克隆）
