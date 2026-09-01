@@ -1,0 +1,45 @@
+{
+  "name": "dsh-HSD-usage",
+  "version": "1.0.0",
+  "description": "涵盛达API用量查询 —— DeepSeekHarness 多服务商 API 用量监控插件：5 小时/周/月用量组合条形柱，支持多实例、拖动排序、勾选显隐、实时刷新（火山方舟 / 智谱 / DeepSeek）。",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types.d.ts",
+  "bin": {
+    "dsh-usage": "bin/dsh-usage.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/types.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "files": [
+    "lib",
+    "bin",
+    "README.md",
+    "REQUIREMENTS.md",
+    "config.example.json",
+    "cordis.patch.yml"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

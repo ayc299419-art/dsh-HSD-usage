@@ -1,0 +1,48 @@
+{
+  "_说明": "本文件演示插件配置格式。实际配置由 CLI（dsh-usage add/config）写入 ~/.dsh/dsh-HSD-usage.json，或在 GUI 配置弹窗中维护。",
+  "instances": [
+    {
+      "type": "deepseek",
+      "name": "DeepSeek 主账号",
+      "credentials": {
+        "apiKey": "sk-xxxx"
+      },
+      "quotaLimit": 10000000
+    },
+    {
+      "type": "volcano",
+      "name": "火山方舟-Coding Plan",
+      "credentials": {
+        "accessKeyId": "AKLTxxxx",
+        "secretAccessKey": "xxxxxxxx",
+        "region": "cn-beijing",
+        "service": "ark",
+        "usageUrl": "https://open.volcengineapi.com/?Action=QueryUsage&Version=...&Region=cn-beijing"
+      },
+      "quotaLimit": 5000000
+    },
+    {
+      "type": "volcano",
+      "name": "火山方舟-Agent Plan",
+      "credentials": {
+        "accessKeyId": "AKLTyyyy",
+        "secretAccessKey": "yyyyyyyy",
+        "usageUrl": ""
+      },
+      "quotaLimit": 3000000
+    },
+    {
+      "type": "zhipu",
+      "name": "智谱 GLM",
+      "credentials": {
+        "apiKey": "xxxx"
+      }
+    }
+  ],
+  "config": {
+    "refreshIntervalMs": 300000,
+    "ratioMode": "global",
+    "unitPreference": "tokens",
+    "defaultQuotaLimit": null
+  }
+}
